@@ -48,9 +48,9 @@ LSTATUS __fastcall sub_140027CD0(__int64 a1, BYTE *a2, HANDLE *a3)
     ModuleHandleW = GetModuleHandleW(L"ntdll.dll");
     NtLoadDriver = (NTSTATUS (__stdcall *)(PUNICODE_STRING))GetProcAddress(ModuleHandleW, "NtLoadDriver");
     v19 = L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\PROCMON24";
-    v18 = 122;
+    v18 = 122; //load driver func ahead
     v10 = ((__int64 (__fastcall *)(__int16 *))NtLoadDriver)(&v18);
-    RegDeleteKeyW(HKEY_LOCAL_MACHINE, L"System\\CurrentControlSet\\Services\\PROCMON24\\Enum");
+    RegDeleteKeyW(HKEY_LOCAL_MACHINE, L"System\\CurrentControlSet\\Services\\PROCMON24\\Enum"); //deleting regedits 
     RegDeleteKeyW(HKEY_LOCAL_MACHINE, L"System\\CurrentControlSet\\Services\\PROCMON24\\Security");
     RegDeleteKeyW(HKEY_LOCAL_MACHINE, L"System\\CurrentControlSet\\Services\\PROCMON24\\Parameters");
     RegDeleteValueW(phkResult, L"Type");
